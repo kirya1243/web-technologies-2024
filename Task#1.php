@@ -1,30 +1,30 @@
-<?php
-    # Задание 1
-    $a = 14; 
-    $b = 5; 
-
-    if ($a >= 0 && $b >= 0) {
-        $result = $a - $b;
-    } elseif ($a < 0 && $b < 0) {
-        $result = $a * $b; 
-    } else {
-        $result = $a + $b; 
-    }
-    ?>
+        <?php
+        function printNumbers() {
+            $i = 0;
+            do {
+                if ($i === 0) {
+                    echo "<p><span class='highlight'>$i</span> – это ноль.</p>";
+                } elseif ($i % 2 === 0) {
+                    echo "<p><span class='highlight'>$i</span> – чётное число.</p>";
+                } else {
+                    echo "<p><span class='highlight'>$i</span> – нечётное число.</p>";
+                }
+                $i++;
+            } while ($i <= 10);
+        }
+?>
 
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/assets/styles/style.css">
     <title>Задание 1</title>
+    <link rel="stylesheet" href="src/assets/styles/style.css">
 </head>
 <body>
-    <div class="result">
-        <h2>Задание 1: Работа с переменными</h2>
-        <p><strong>$a:</strong> <?= $a ?>, <strong>$b:</strong> <?= $b ?></p>
-        <p><strong>Результат:</strong> <?= $result ?></p>
+    <h1>Задание: Чётные и нечётные числа от 0 до 10</h1>
+    <div class="output">
+        <?= printNumbers(); ?>
     </div>
 </body>
 </html>
