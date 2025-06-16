@@ -1,9 +1,6 @@
-// js/post.js
-
 const postContainer = document.getElementById('post');
 const commentsContainer = document.getElementById('comments');
 
-// Получаем id поста из адресной строки
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get('id');
 
@@ -13,10 +10,8 @@ if (!postId) {
     fetchPostAndComments(postId);
 }
 
-// Получение поста и комментариев
 async function fetchPostAndComments(id) {
     try {
-        // Получаем пост
         const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
         if (!postResponse.ok) {
             throw new Error('Ошибка при получении поста');
@@ -24,7 +19,6 @@ async function fetchPostAndComments(id) {
         const post = await postResponse.json();
         renderPost(post);
 
-        // Получаем комментарии
         const commentsResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`);
         if (!commentsResponse.ok) {
             throw new Error('Ошибка при получении комментариев');
@@ -37,7 +31,6 @@ async function fetchPostAndComments(id) {
     }
 }
 
-// Отрисовка поста
 function renderPost(post) {
     postContainer.innerHTML = `
         <h2>${post.title}</h2>
@@ -46,7 +39,6 @@ function renderPost(post) {
     `;
 }
 
-// Отрисовка комментариев
 function renderComments(comments) {
     commentsContainer.innerHTML = '<h3>Комментарии:</h3>';
 
