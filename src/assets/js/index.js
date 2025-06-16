@@ -5,7 +5,6 @@ const POSTS_PER_PAGE = 10;
 let currentPage = 1;
 let posts = [];
 
-// Получение всех постов
 async function fetchPosts() {
     try {
         const response = await fetch('https://jsonplaceholder.typicode.com/posts');
@@ -20,7 +19,6 @@ async function fetchPosts() {
     }
 }
 
-// Отрисовка постов на текущей странице
 function renderPosts() {
     postsContainer.innerHTML = '';
 
@@ -40,7 +38,6 @@ function renderPosts() {
     });
 }
 
-// Отрисовка кнопок пагинации
 function renderPagination() {
     paginationContainer.innerHTML = '';
 
@@ -62,5 +59,4 @@ function renderPagination() {
     }
 }
 
-// Запуск приложения
 fetchPosts();
